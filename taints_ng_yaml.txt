@@ -1,0 +1,19 @@
+  - name: pub-201-a-2
+    labels: { role: workers }
+    tags:
+      k8s.io/cluster-autoscaler/enabled: "true"
+      k8s.io/cluster-autoscaler/my-eks-201: "shared"
+    instancesDistribution:
+    taints:
+      - key:   "critical"
+        value: "true"
+        effect: NoSchedule
+    instanceType:  t2.medium
+    minSize: 2
+    maxSize: 8
+   desiredCapacity: 1
+    minSize: 0
+    maxSize: 5
+    subnets:
+      - my-public-201-c
+  
